@@ -1,0 +1,64 @@
+.simulation-section {
+  margin-top: 1rem;
+  border-top: 1px solid rgba(120, 120, 120, 0.25);
+  padding-top: 1rem;
+}
+
+.simulation-section h4 {
+  margin: 1.25rem 0 0.5rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  opacity: 0.7;
+}
+
+.simulation-section h4:first-child {
+  margin-top: 0;
+}
+
+.simulation-section__specs {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.simulation-section__see-more {
+  background: none;
+  border: none;
+  color: #2f6fed;
+  cursor: pointer;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+.simulation-section__join-btn {
+  background: #2fa84f;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 1.25rem;
+  min-height: 44px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.simulation-section__my-participation {
+  font-size: 0.95rem;
+  background: rgba(47, 168, 79, 0.12);
+  padding: 0.6rem 0.85rem;
+  border-radius: 8px;
+}
+
+.simulation-section__placeholder {
+  opacity: 0.6;
+  font-size: 0.9rem;
+}
+
+.simulation-section__participants,
+.simulation-section__speaking-order {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}

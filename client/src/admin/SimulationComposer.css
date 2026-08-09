@@ -1,0 +1,64 @@
+.simulation-composer__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.4rem;
+}
+
+.simulation-composer__label {
+  font-size: 0.85rem;
+  opacity: 0.75;
+  display: flex;
+  align-items: center;
+}
+
+.simulation-composer__row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.simulation-composer__row .simulation-composer__field {
+  flex: 1;
+}
+
+.simulation-composer__input {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.95rem;
+}
+
+.simulation-composer__colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.simulation-composer__color {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.simulation-composer__color--active {
+  border-color: #111111;
+}
+
+.simulation-composer__picker-btn {
+  text-align: left;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  min-height: 44px;
+  background: #fafafa;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.simulation-composer__toggle-row {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}

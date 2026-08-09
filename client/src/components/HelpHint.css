@@ -1,0 +1,33 @@
+.help-hint {
+  position: relative;
+  display: inline-block;
+  margin-left: 0.35rem;
+}
+
+.help-hint__button {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  background: none;
+  color: inherit;
+  font-size: 0.7rem;
+  line-height: 1;
+  cursor: help;
+  padding: 0;
+  opacity: 0.7;
+}
+
+.help-hint__popover {
+  position: absolute;
+  top: 130%;
+  left: 0;
+  z-index: 10;
+  background: #222222;
+  color: #ffffff;
+  font-size: 0.8rem;
+  padding: 0.5rem 0.7rem;
+  border-radius: 8px;
+  width: 220px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}

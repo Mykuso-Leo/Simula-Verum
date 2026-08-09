@@ -1,0 +1,64 @@
+.admin-fab {
+  position: fixed;
+  bottom: 1.5rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: #2fa84f;
+  color: #ffffff;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-fab--create {
+  right: 1.5rem;
+}
+
+.admin-fab--edit {
+  right: 5.75rem;
+  background: #333333;
+  font-size: 1.2rem;
+}
+
+.admin-fab__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2500;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 6rem 1.5rem;
+}
+
+.admin-fab__dropdown {
+  background: #ffffff;
+  color: #111111;
+  border-radius: 12px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  min-width: 160px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.admin-fab__dropdown button {
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 0.75rem 0.9rem;
+  min-height: 44px;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.admin-fab__dropdown button:hover {
+  background: rgba(0, 0, 0, 0.06);
+}

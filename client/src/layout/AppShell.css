@@ -1,0 +1,118 @@
+.app-shell {
+  min-height: 100vh;
+  background: var(--color-bg, #ffffff);
+  color: var(--color-text, #111111);
+}
+
+.app-shell__header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.app-shell__hamburger {
+  background: none;
+  border: none;
+  color: var(--color-text, #111111);
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-shell__backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 900;
+}
+
+.app-shell__sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: min(280px, 85vw);
+  overflow-y: auto;
+  background: var(--color-sidebar, #f0f0f0);
+  color: var(--color-text, #111111);
+  z-index: 901;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.2);
+  animation: sidebar-slide-in 180ms ease-out;
+}
+
+@keyframes sidebar-slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.app-shell__profile {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  padding: 0;
+}
+
+.app-shell__profile:disabled {
+  cursor: default;
+}
+
+.app-shell__emoji {
+  font-size: 1.3rem;
+}
+
+.app-shell__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.app-shell__nav-item {
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 0.85rem 0.75rem;
+  min-height: 44px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: inherit;
+}
+
+.app-shell__nav-item--active {
+  background: rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+}
+
+.app-shell__qr {
+  margin-top: 1.5rem;
+}
+
+.app-shell__logout {
+  margin-top: auto;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 0.85rem 0.75rem;
+  min-height: 44px;
+  cursor: pointer;
+  color: inherit;
+  font-size: 1rem;
+}

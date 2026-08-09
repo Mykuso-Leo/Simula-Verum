@@ -1,0 +1,116 @@
+.moderation-panel__backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2500;
+  padding: 1rem;
+}
+
+.moderation-panel {
+  background: #ffffff;
+  color: #111111;
+  border-radius: 14px;
+  padding: 1.25rem;
+  width: min(480px, 100%);
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.moderation-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.moderation-panel__header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  min-height: 44px;
+  font-size: 0.95rem;
+}
+
+.moderation-panel__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+}
+
+.moderation-panel__row-label {
+  display: flex;
+  align-items: center;
+}
+
+.moderation-panel__section {
+  margin-top: 1.25rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 1rem;
+}
+
+.moderation-panel__section h4 {
+  margin: 0 0 0.6rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.moderation-panel__purge {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: none;
+  border-radius: 8px;
+  background: rgba(214, 67, 67, 0.12);
+  color: #a12626;
+  padding: 0.7rem 0.85rem;
+  min-height: 44px;
+  margin-bottom: 0.4rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.moderation-panel__purge--empty {
+  opacity: 0.4;
+}
+
+.moderation-panel__empty {
+  opacity: 0.6;
+  font-size: 0.9rem;
+}
+
+.moderation-panel__penalties {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.moderation-panel__penalties li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  padding: 0.5rem 0.7rem;
+}
+
+.moderation-panel__penalties button {
+  border: none;
+  border-radius: 6px;
+  background: #2fa84f;
+  color: #ffffff;
+  padding: 0.4rem 0.7rem;
+  min-height: 36px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}

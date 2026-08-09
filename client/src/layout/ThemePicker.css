@@ -1,0 +1,28 @@
+.theme-picker {
+  margin-top: 1.5rem;
+}
+
+.theme-picker__label {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  color: #666666;
+}
+
+.theme-picker__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.theme-picker__swatch {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
+.theme-picker__swatch--active {
+  border-color: #333333;
+}

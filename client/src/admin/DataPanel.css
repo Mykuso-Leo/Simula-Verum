@@ -1,0 +1,79 @@
+.data-panel {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+}
+
+.data-panel__storage {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.data-panel__storage-total {
+  margin: 0 0 0.25rem;
+  font-weight: 600;
+}
+
+.data-panel__storage-detail {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.data-panel h3 {
+  margin: 1.5rem 0 0.5rem;
+}
+
+.data-panel__restore {
+  margin-top: 2.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  padding-top: 1.5rem;
+}
+
+.data-panel__restore-btn {
+  background: #d64343;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 1.25rem;
+  min-height: 44px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.data-panel__restore-question {
+  background: rgba(214, 67, 67, 0.08);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.data-panel__restore-question input {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  margin-top: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+}
+
+.data-panel__restore-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.data-panel__restore-actions button {
+  min-height: 44px;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.data-panel__restore-actions button:last-child {
+  background: #d64343;
+  color: #ffffff;
+}

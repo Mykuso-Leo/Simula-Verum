@@ -1,0 +1,62 @@
+.qr-button {
+  background: #e9e9e9;
+  border: none;
+  border-radius: 999px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333333;
+  cursor: pointer;
+}
+
+.qr-overlay {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  cursor: pointer;
+  animation: qr-overlay-in 200ms ease-out;
+}
+
+.qr-overlay--closing {
+  animation: qr-overlay-out 200ms ease-in forwards;
+}
+
+.qr-overlay__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.qr-overlay__hint {
+  font-family: sans-serif;
+  color: #555555;
+}
+
+@keyframes qr-overlay-in {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes qr-overlay-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+}

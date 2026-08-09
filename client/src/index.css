@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg, #ffffff);
+  color: var(--color-text, #111111);
+}
+
+.formatted-link {
+  color: #2f6fed;
+  text-decoration: underline;
+}
+
+:root {
+  --sim-color-red: #e53935;
+  --sim-color-orange: #fb8c00;
+  --sim-color-yellow: #fdd835;
+  --sim-color-green: #43a047;
+  --sim-color-blue: #1e88e5;
+  --sim-color-indigo: #3949ab;
+  --sim-color-violet: #8e24aa;
+  --sim-color-dark_gray: #424242;
+  --sim-color-light_gray: #bdbdbd;
+}

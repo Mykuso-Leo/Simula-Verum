@@ -1,0 +1,70 @@
+.post-detail {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 3rem;
+}
+
+.post-detail__back {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 0.95rem;
+  padding: 0.5rem 0;
+  min-height: 44px;
+  opacity: 0.75;
+}
+
+.post-detail__tag {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.65;
+  margin-top: 0.5rem;
+}
+
+.post-detail__title {
+  margin: 0.3rem 0 1rem;
+}
+
+.post-detail__body {
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+.post-detail__section {
+  margin-top: 2rem;
+  border-top: 1px solid rgba(120, 120, 120, 0.25);
+  padding-top: 1rem;
+}
+
+.post-detail__section h4 {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  opacity: 0.7;
+}
+
+.post-detail__placeholder {
+  opacity: 0.6;
+  font-size: 0.9rem;
+}
+
+.post-detail__history {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.post-detail__error {
+  padding: 2rem;
+}
+
+.post-detail__attachments-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+}

@@ -23,4 +23,14 @@ body {
   --sim-color-violet: #8e24aa;
   --sim-color-dark_gray: #424242;
   --sim-color-light_gray: #bdbdbd;
+
+  /* Escala única de z-index. Todo elemento com position:fixed/sticky deve
+     usar uma destas variáveis em vez de um número solto — é o que garante
+     que a notificação (2.4) sempre fique acima de qualquer modal, atual
+     ou futuro. */
+  --z-fab: 500;
+  --z-app-chrome: 900;
+  --z-modal: 2000;
+  --z-modal-nested: 3000;
+  --z-notification: 9000;
 }

@@ -18,7 +18,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 3000;
+  z-index: var(--z-modal);
   cursor: pointer;
   padding: 1.5rem;
   animation: qr-overlay-fade-in 200ms ease-out;

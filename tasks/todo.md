@@ -40,6 +40,9 @@ Pendência conhecida: edição de título/texto de posts de Simulação após cr
 ## Checkpoint F — Admin avançado
 - [x] F1 — Editor Tree View + storage + restaurar banco (3.3)
 
+## Adiado — reestruturação visual
+Estilo atual está minimalista demais e com problemas de contraste (ex: texto cinza sobre fundo vermelho claro). Adiado até terminar a correção de bugs funcionais. Quando começar: usuário vai trazer sites de referência + pedir mockups (não um prompt de design escrito). Correções de contraste ficam junto com essa reestruturação, não separadas.
+
 ## Checkpoint G — Polimento
 - [x] G1 — Consistência de formatação/notificação + varredura dos botões de ajuda "(?)" em todo toggle/seletor não óbvio (2.6)
 - [x] G2 — Varredura de segurança: 28 endpoints admin-only testados, todos corretamente bloqueados (401/403)

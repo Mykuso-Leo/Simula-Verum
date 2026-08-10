@@ -12,13 +12,25 @@
   align-items: center;
 }
 
-.simulation-composer__row {
-  display: flex;
-  gap: 0.75rem;
+.simulation-composer__specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 0.75rem;
+  margin-top: 0.4rem;
 }
 
-.simulation-composer__row .simulation-composer__field {
-  flex: 1;
+.simulation-composer__specs-grid .simulation-composer__field {
+  margin-top: 0;
+}
+
+.simulation-composer__label-standalone {
+  font-size: 0.85rem;
+  opacity: 0.75;
+  margin-top: 0.4rem;
+}
+
+.simulation-composer__required {
+  color: #d64343;
 }
 
 .simulation-composer__input {
@@ -61,4 +73,10 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+
+@media (max-width: 380px) {
+  .simulation-composer__specs-grid {
+    grid-template-columns: 1fr;
+  }
 }

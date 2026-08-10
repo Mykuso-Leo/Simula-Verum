@@ -4,6 +4,7 @@ import { useNotify } from '../notifications/NotificationContext.jsx'
 import { HelpHint } from '../components/HelpHint.jsx'
 import { ConfirmDialog } from '../components/ConfirmDialog.jsx'
 import { AttachmentManager } from './AttachmentManager.jsx'
+import { AutoResizeTextarea } from '../components/AutoResizeTextarea.jsx'
 import './PostComposer.css'
 
 const FORMAT_HELP =
@@ -81,10 +82,9 @@ export function PostComposer({ mode, postId, initialTitle = '', initialBody = ''
           <span>Texto</span>
           <HelpHint text={FORMAT_HELP} />
         </div>
-        <textarea
+        <AutoResizeTextarea
           className="post-composer__body"
           placeholder="Escreva o conteúdo do post..."
-          rows={8}
           value={body}
           onChange={(e) => setBody(e.target.value)}
         />

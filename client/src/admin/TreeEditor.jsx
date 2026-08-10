@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNotify } from '../notifications/NotificationContext.jsx'
 import { ConfirmDialog } from '../components/ConfirmDialog.jsx'
+import { Emoji } from '../components/Emoji.jsx'
 import './TreeEditor.css'
 
 export function TreeEditor({ fetchTree, createNode, updateNode, deleteNode, withEmoji }) {
@@ -135,7 +136,7 @@ function TreeEditorNode({ node, onChange, createNode, updateNode, deleteNode, wi
         ) : (
           <span className="tree-editor__row">
             <span className="tree-editor__label">
-              {node.emoji && <span>{node.emoji}</span>} {node.name}
+              {node.emoji && <Emoji text={node.emoji} />} {node.name}
             </span>
             <button type="button" onClick={() => setRenaming(true)} aria-label="Renomear">
               ✎

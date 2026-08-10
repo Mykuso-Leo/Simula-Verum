@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { Emoji } from '../components/Emoji.jsx'
 import './PoolJoinPicker.css'
 
 const SEARCH_THRESHOLD = 20
@@ -38,7 +39,7 @@ export function PoolJoinPicker({ availableItems, onCancel, onConfirm }) {
                   checked={selectedId === item.id}
                   onChange={() => setSelectedId(item.id)}
                 />
-                {item.emoji && <span>{item.emoji}</span>} {item.name}
+                {item.emoji && <Emoji text={item.emoji} />} {item.name}
               </label>
             </li>
           ))}

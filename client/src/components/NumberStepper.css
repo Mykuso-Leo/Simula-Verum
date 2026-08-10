@@ -1,0 +1,35 @@
+.number-stepper {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.number-stepper__btn {
+  border: none;
+  background: rgba(0, 0, 0, 0.06);
+  width: 40px;
+  min-height: 44px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.number-stepper__btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.number-stepper__input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  text-align: center;
+  font-size: 0.95rem;
+  padding: 0.5rem 0.25rem;
+}
+
+.number-stepper__input:focus {
+  outline: none;
+}

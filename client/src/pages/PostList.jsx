@@ -29,7 +29,7 @@ export function PostList({ onSelect, isAdmin, onTogglePin }) {
           >
             <span className="post-card__tag">{post.type === 'text' ? 'Texto' : 'Simulação'}</span>
             <h3 className="post-card__title">
-              {post.title}
+              <span className="post-card__title-text">{post.title}</span>
               {post.type === 'simulation' && post.isOpen && <span className="post-card__active-dot" aria-label="Simulação ativa" />}
             </h3>
             {post.type === 'text' && post.preview && <p className="post-card__preview">{post.preview}</p>}

@@ -113,9 +113,11 @@ debatesRouter.post('/messages', (req, res) => {
     return res.status(400).json({ error: `Limite de ${MAX_MESSAGE_LENGTH} caracteres atingido.` })
   }
 
+  const senderEmoji = isAdmin ? null : (db.prepare('SELECT emoji FROM users WHERE id = ?').get(userId)?.emoji ?? '')
+
   const info = db
-    .prepare('INSERT INTO debate_messages (user_id, is_admin, body) VALUES (?, ?, ?)')
-    .run(userId, isAdmin ? 1 : 0, trimmed)
+    .prepare('INSERT INTO debate_messages (user_id, is_admin, body, emoji) VALUES (?, ?, ?, ?)')
+    .run(userId, isAdmin ? 1 : 0, trimmed, senderEmoji)
 
   if (!isAdmin) {
     applySpamPenaltyIfNeeded(userId, trimmed)
@@ -126,8 +128,8 @@ debatesRouter.post('/messages', (req, res) => {
 })
 
 const SELECT_FIELDS = `
-  dm.id, dm.body, dm.created_at, dm.is_admin,
-  u.id AS user_id, u.name AS user_name, u.emoji AS user_emoji
+  dm.id, dm.body, dm.created_at, dm.is_admin, dm.emoji AS user_emoji,
+  u.id AS user_id, u.name AS user_name
 `
 const SELECT_RECENT_MESSAGES = `SELECT ${SELECT_FIELDS} FROM debate_messages dm LEFT JOIN users u ON u.id = dm.user_id ORDER BY dm.id DESC LIMIT 100`
 const SELECT_MESSAGES_SINCE = `SELECT ${SELECT_FIELDS} FROM debate_messages dm LEFT JOIN users u ON u.id = dm.user_id WHERE dm.id > ? ORDER BY dm.id ASC`

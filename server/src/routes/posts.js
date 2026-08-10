@@ -205,9 +205,11 @@ function toListItem(post) {
   return item
 }
 
+const PREVIEW_LENGTH = 90
+
 function firstLine(body) {
   const line = body.split('\n')[0]
-  return line.length > 140 ? `${line.slice(0, 140)}…` : line
+  return line.length > PREVIEW_LENGTH ? `${line.slice(0, PREVIEW_LENGTH)}…` : line
 }
 
 function validateSimulationSpecs(payload, { partial = false } = {}) {

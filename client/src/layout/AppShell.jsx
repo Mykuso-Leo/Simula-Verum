@@ -3,6 +3,7 @@ import { useAuth } from '../auth/AuthContext.jsx'
 import { QrCodeButton } from '../components/QrCodeButton.jsx'
 import { ThemePicker } from './ThemePicker.jsx'
 import { ProfileMenu } from './ProfileMenu.jsx'
+import { Emoji } from '../components/Emoji.jsx'
 import './AppShell.css'
 
 export function AppShell({ children, activeView, onNavigate }) {
@@ -12,9 +13,14 @@ export function AppShell({ children, activeView, onNavigate }) {
 
   const profileLabel = user.isAdmin ? `Administrador (${user.username})` : user.name
 
+  const closeSidebar = () => {
+    setSidebarOpen(false)
+    setProfileMenuOpen(false)
+  }
+
   const navigateTo = (view) => {
     onNavigate(view)
-    setSidebarOpen(false)
+    closeSidebar()
   }
 
   return (
@@ -31,7 +37,7 @@ export function AppShell({ children, activeView, onNavigate }) {
 
       {sidebarOpen && (
         <>
-          <div className="app-shell__backdrop" onClick={() => setSidebarOpen(false)} />
+          <div className="app-shell__backdrop" onClick={closeSidebar} />
           <aside className="app-shell__sidebar">
             <button
               type="button"
@@ -39,7 +45,9 @@ export function AppShell({ children, activeView, onNavigate }) {
               onClick={() => setProfileMenuOpen((open) => !open)}
               disabled={user.isAdmin}
             >
-              <span className="app-shell__emoji">{(!user.isAdmin && user.emoji) || '⚪'}</span>
+              <span className="app-shell__emoji">
+                {!user.isAdmin && user.emoji ? <Emoji text={user.emoji} /> : '⚪'}
+              </span>
               <span className="app-shell__name">{profileLabel}</span>
             </button>
 

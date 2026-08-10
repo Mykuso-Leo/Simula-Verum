@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { db } from '../db/index.js'
 import { toPublicUser } from './auth.js'
+import { isValidEmoji } from '../utils/emoji.js'
 
 const NAME_REGEX = /^[\p{L}\s]+$/u
 const VALID_THEME_IDS = ['white', 'black', 'dark_blue', 'light_blue', 'yellow', 'green', 'purple', 'red']
@@ -40,8 +41,8 @@ usersRouter.patch('/me', (req, res) => {
     params.push(theme)
   }
   if (emoji !== undefined) {
-    if (typeof emoji !== 'string' || [...emoji].length > 8) {
-      return res.status(400).json({ error: 'Emoji inválido.' })
+    if (!isValidEmoji(emoji)) {
+      return res.status(400).json({ error: 'Isso não é um emoji válido. Escolha um emoji no seletor.' })
     }
     updates.push('emoji = ?')
     params.push(emoji)

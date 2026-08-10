@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { NotificationProvider } from './notifications/NotificationContext.jsx'
 import { AuthProvider } from './auth/AuthContext.jsx'
+import 'flag-icons/css/flag-icons.min.css'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(

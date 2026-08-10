@@ -44,6 +44,7 @@ CREATE TABLE IF NOT EXISTS debate_messages (
   user_id INTEGER REFERENCES users(id),
   is_admin INTEGER NOT NULL DEFAULT 0,
   body TEXT NOT NULL,
+  emoji TEXT,
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 

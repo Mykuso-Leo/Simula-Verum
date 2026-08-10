@@ -6,6 +6,8 @@ import { HelpHint } from '../components/HelpHint.jsx'
 import { ToggleSwitch } from '../components/ToggleSwitch.jsx'
 import { AttachmentManager } from './AttachmentManager.jsx'
 import { TreePickerDialog } from './TreePickerDialog.jsx'
+import { AutoResizeTextarea } from '../components/AutoResizeTextarea.jsx'
+import { NumberStepper } from '../components/NumberStepper.jsx'
 import { SIMULATION_COLORS } from '../theme/simulationColors.js'
 import './PostComposer.css'
 import './SimulationComposer.css'
@@ -87,6 +89,9 @@ export function SimulationComposer({ onCancel, onDone }) {
       <form className="post-composer simulation-composer" onClick={(e) => e.stopPropagation()} onSubmit={handleSubmit}>
         <h3>Nova simulação</h3>
 
+        <label className="simulation-composer__label-standalone">
+          Título <span className="simulation-composer__required">*</span>
+        </label>
         <input
           className="post-composer__title"
           type="text"
@@ -96,13 +101,14 @@ export function SimulationComposer({ onCancel, onDone }) {
         />
 
         <div className="post-composer__body-label">
-          <span>Texto</span>
+          <span>
+            Texto <span className="simulation-composer__required">*</span>
+          </span>
           <HelpHint text={FORMAT_HELP} />
         </div>
-        <textarea
+        <AutoResizeTextarea
           className="post-composer__body"
           placeholder="Descreva a simulação..."
-          rows={5}
           value={body}
           onChange={(e) => setBody(e.target.value)}
         />
@@ -126,54 +132,34 @@ export function SimulationComposer({ onCancel, onDone }) {
         <div className="simulation-composer__field">
           <span className="simulation-composer__label">Comitê</span>
           <button type="button" className="simulation-composer__picker-btn" onClick={() => setPickerOpen('committee')}>
-            {committee ? committee.name : 'Selecionar comitê (opcional)'}
+            {committee ? committee.name : 'Selecionar comitê'}
           </button>
         </div>
 
-        <label className="simulation-composer__field">
-          <span className="simulation-composer__label">Data (DD/MM, opcional)</span>
-          <input
-            type="text"
-            placeholder="Ex: 25/09"
-            value={dateText}
-            onChange={(e) => setDateText(e.target.value)}
-            className="simulation-composer__input"
-          />
-        </label>
-
-        <div className="simulation-composer__row">
+        <div className="simulation-composer__specs-grid">
           <label className="simulation-composer__field">
-            <span className="simulation-composer__label">Duração total (minutos)</span>
+            <span className="simulation-composer__label">Data (DD/MM)</span>
             <input
-              type="number"
-              min="0"
-              value={durationMinutes}
-              onChange={(e) => setDurationMinutes(e.target.value)}
+              type="text"
+              placeholder="Ex: 25/09"
+              value={dateText}
+              onChange={(e) => setDateText(e.target.value)}
               className="simulation-composer__input"
             />
+          </label>
+          <label className="simulation-composer__field">
+            <span className="simulation-composer__label">Duração (min)</span>
+            <NumberStepper value={durationMinutes} onChange={setDurationMinutes} min={0} />
           </label>
           <label className="simulation-composer__field">
             <span className="simulation-composer__label">Tempo de discurso (min)</span>
-            <input
-              type="number"
-              min="0"
-              value={speechTimeMinutes}
-              onChange={(e) => setSpeechTimeMinutes(e.target.value)}
-              className="simulation-composer__input"
-            />
+            <NumberStepper value={speechTimeMinutes} onChange={setSpeechTimeMinutes} min={0} />
+          </label>
+          <label className="simulation-composer__field">
+            <span className="simulation-composer__label">Máx. de representantes</span>
+            <NumberStepper value={maxRepresentatives} onChange={setMaxRepresentatives} min={1} />
           </label>
         </div>
-
-        <label className="simulation-composer__field">
-          <span className="simulation-composer__label">Quantidade máxima de representantes</span>
-          <input
-            type="number"
-            min="1"
-            value={maxRepresentatives}
-            onChange={(e) => setMaxRepresentatives(e.target.value)}
-            className="simulation-composer__input"
-          />
-        </label>
 
         <div className="simulation-composer__field simulation-composer__toggle-row">
           <span className="simulation-composer__label">

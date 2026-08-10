@@ -30,6 +30,14 @@ Na primeira execução, o servidor cria automaticamente:
 - a conta de administrador padrão: usuário `admin`, senha `simulaverum` (**troque isso antes de usar o site com dados reais** — ainda não existe uma tela para alterar a senha do admin, então por enquanto a troca precisa ser feita direto no banco);
 - a árvore de representações e comitês (países, comitês históricos, mitológicos, etc.).
 
+## Nota sobre rodar dentro do OneDrive
+
+Este projeto está numa pasta sincronizada pelo OneDrive, o que já causou dois problemas de desenvolvimento:
+- O cache do Vite (`client/node_modules/.vite`) às vezes trava com erro `EPERM` durante a sincronização — se acontecer, apague essa pasta e rode `npm run dev` de novo.
+- `node --watch` sem escopo entrava em loop infinito de reinício (provavelmente por causa da sincronização mexendo em arquivos observados) — por isso o script `dev` do servidor usa `--watch-path=src`, restringindo a observação só ao código-fonte.
+
+Se possível, mover o projeto pra fora de uma pasta sincronizada (ex: `C:\dev\simula-verum`) evita os dois problemas de vez.
+
 ## Backup
 
 O banco roda em modo WAL (write-ahead log) para melhor desempenho. Isso significa que escritas recentes podem estar temporariamente em `simulaverum.db-wal` em vez do arquivo principal. Para um backup completo e consistente, copie os três arquivos juntos:

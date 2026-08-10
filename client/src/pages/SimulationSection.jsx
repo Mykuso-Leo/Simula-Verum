@@ -4,6 +4,7 @@ import { useNotify } from '../notifications/NotificationContext.jsx'
 import { joinSimulation } from '../api/simulations.js'
 import { PoolJoinPicker } from './PoolJoinPicker.jsx'
 import { SimulationAdminControls } from '../admin/SimulationAdminControls.jsx'
+import { Emoji } from '../components/Emoji.jsx'
 import './SimulationSection.css'
 
 function formatDuration(minutes) {
@@ -95,9 +96,14 @@ export function SimulationSection({ post, onRefresh }) {
       {!user.isAdmin && myParticipation && (
         <p className="simulation-section__my-participation">
           Você está inscrito como:{' '}
-          {myParticipation.representationName
-            ? `${myParticipation.representationEmoji ?? ''} ${myParticipation.representationName}`
-            : 'aguardando sorteio'}
+          {myParticipation.representationName ? (
+            <>
+              {myParticipation.representationEmoji && <Emoji text={myParticipation.representationEmoji} />}{' '}
+              {myParticipation.representationName}
+            </>
+          ) : (
+            'aguardando sorteio'
+          )}
         </p>
       )}
 
@@ -108,8 +114,14 @@ export function SimulationSection({ post, onRefresh }) {
         <ul className="simulation-section__participants">
           {sim.participants.map((p) => (
             <li key={p.userId}>
-              {p.userEmoji} {p.name} —{' '}
-              {p.representationName ? `${p.representationEmoji ?? ''} ${p.representationName}` : 'aguardando sorteio'}
+              {p.name} —{' '}
+              {p.representationName ? (
+                <>
+                  {p.representationEmoji && <Emoji text={p.representationEmoji} />} {p.representationName}
+                </>
+              ) : (
+                'aguardando sorteio'
+              )}
             </li>
           ))}
         </ul>

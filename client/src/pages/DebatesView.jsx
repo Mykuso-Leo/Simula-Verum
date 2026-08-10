@@ -4,6 +4,7 @@ import { useNotify } from '../notifications/NotificationContext.jsx'
 import { listDebateMessages, sendDebateMessage, getForumState, deleteDebateMessage } from '../api/debates.js'
 import { formatDebateTimestamp } from '../utils/debateTimestamp.js'
 import { ModerationPanel } from '../admin/ModerationPanel.jsx'
+import { Emoji } from '../components/Emoji.jsx'
 import './DebatesView.css'
 
 const POLL_INTERVAL_MS = 3000
@@ -100,7 +101,9 @@ export function DebatesView() {
           const senderLabel = msg.isAdmin ? 'Administração' : msg.user?.name || 'Aluno'
           return (
             <div key={msg.id} className={`debate-message${own ? ' debate-message--own' : ''}`}>
-              <div className="debate-message__sender">{senderLabel}</div>
+              <div className="debate-message__sender">
+                {!msg.isAdmin && msg.user?.emoji && <Emoji text={msg.user.emoji} />} {senderLabel}
+              </div>
               <div className="debate-message__bubble">
                 {own && <span className="debate-message__timestamp">{formatDebateTimestamp(msg.createdAt)}</span>}
                 <span className="debate-message__text">{msg.body}</span>

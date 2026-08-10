@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Emoji } from '../components/Emoji.jsx'
 import './TreeBrowser.css'
 
 export function TreeBrowser({ nodes, mode, selectedIds, onToggleLeaf, prioritySet, onTogglePriority, selectedFolderId, onSelectFolder }) {
@@ -71,7 +72,7 @@ function TreeNode({ node, mode, selectedIds, onToggleLeaf, prioritySet, onToggle
           checked={isSelected}
           onChange={() => onToggleLeaf(node.id)}
         />
-        {node.emoji && <span>{node.emoji}</span>} {node.name}
+        {node.emoji && <Emoji text={node.emoji} />} {node.name}
       </label>
       {mode === 'multi' && isSelected && prioritySet && (
         <button

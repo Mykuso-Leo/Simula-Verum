@@ -14,49 +14,79 @@
 .qr-overlay {
   position: fixed;
   inset: 0;
-  background: #ffffff;
+  background: rgba(0, 0, 0, 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2000;
+  z-index: 3000;
   cursor: pointer;
-  animation: qr-overlay-in 200ms ease-out;
+  padding: 1.5rem;
+  animation: qr-overlay-fade-in 200ms ease-out;
 }
 
 .qr-overlay--closing {
-  animation: qr-overlay-out 200ms ease-in forwards;
+  animation: qr-overlay-fade-out 200ms ease-in forwards;
 }
 
-.qr-overlay__content {
+.qr-overlay__card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.25rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  animation: qr-card-in 200ms ease-out;
+}
+
+.qr-overlay--closing .qr-overlay__card {
+  animation: qr-card-out 200ms ease-in forwards;
 }
 
 .qr-overlay__hint {
   font-family: sans-serif;
   color: #555555;
+  margin: 0;
+  text-align: center;
 }
 
-@keyframes qr-overlay-in {
+@keyframes qr-overlay-fade-in {
   from {
     opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes qr-overlay-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes qr-card-in {
+  from {
     transform: scale(0.85);
+    opacity: 0;
   }
   to {
-    opacity: 1;
     transform: scale(1);
+    opacity: 1;
   }
 }
 
-@keyframes qr-overlay-out {
+@keyframes qr-card-out {
   from {
-    opacity: 1;
     transform: scale(1);
+    opacity: 1;
   }
   to {
-    opacity: 0;
     transform: scale(0.7);
+    opacity: 0;
   }
 }

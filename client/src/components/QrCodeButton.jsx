@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { createPortal } from 'react-dom'
 import { QRCodeSVG } from 'qrcode.react'
 import './QrCodeButton.css'
 
@@ -32,14 +33,16 @@ export function QrCodeButton() {
         </svg>
       </button>
 
-      {open && (
-        <div className={`qr-overlay${closing ? ' qr-overlay--closing' : ''}`} onClick={handleClose}>
-          <div className="qr-overlay__content">
-            <QRCodeSVG value={window.location.origin} size={280} />
-            <p className="qr-overlay__hint">Aperte em qualquer lugar para sair</p>
-          </div>
-        </div>
-      )}
+      {open &&
+        createPortal(
+          <div className={`qr-overlay${closing ? ' qr-overlay--closing' : ''}`} onClick={handleClose}>
+            <div className="qr-overlay__card">
+              <QRCodeSVG value={window.location.origin} size={240} />
+              <p className="qr-overlay__hint">Aperte em qualquer lugar para sair</p>
+            </div>
+          </div>,
+          document.body
+        )}
     </>
   )
 }

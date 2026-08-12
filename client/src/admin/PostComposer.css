@@ -17,9 +17,11 @@
   width: min(520px, 100%);
   max-height: 90vh;
   overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  min-width: 0;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 

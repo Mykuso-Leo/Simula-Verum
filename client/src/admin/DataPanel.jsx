@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import {
   getStorage,
+  getUserLog,
   restoreDatabase,
   createRepresentationNode,
   updateRepresentationNode,
@@ -20,14 +21,25 @@ function formatBytes(bytes) {
   return `${(bytes / (1024 * 1024)).toFixed(2)} MB`
 }
 
+function formatLogTimestamp(sqliteDatetime) {
+  const date = new Date(`${sqliteDatetime.replace(' ', 'T')}Z`)
+  const day = String(date.getDate()).padStart(2, '0')
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const hours = String(date.getHours()).padStart(2, '0')
+  const minutes = String(date.getMinutes()).padStart(2, '0')
+  return `${day}/${month}/${date.getFullYear()} às ${hours}:${minutes}`
+}
+
 export function DataPanel() {
   const [storage, setStorage] = useState(null)
+  const [userLog, setUserLog] = useState(null)
   const [restoreStep, setRestoreStep] = useState(null)
   const [answer, setAnswer] = useState('')
   const notify = useNotify()
 
   useEffect(() => {
     getStorage().then(setStorage).catch(() => {})
+    getUserLog().then(setUserLog).catch(() => {})
   }, [])
 
   const handleRestore = async () => {
@@ -53,6 +65,20 @@ export function DataPanel() {
             Banco de dados: {formatBytes(storage.dbSizeBytes)} · Anexos: {formatBytes(storage.uploadsSizeBytes)}
           </p>
         </div>
+      )}
+
+      <h3>Contas registradas</h3>
+      {!userLog ? null : userLog.length === 0 ? (
+        <p className="data-panel__empty">Nenhuma conta registrada ainda.</p>
+      ) : (
+        <ul className="data-panel__user-log">
+          {userLog.map((u) => (
+            <li key={u.name}>
+              <span className="data-panel__user-log-name">{u.name}</span>
+              <span className="data-panel__user-log-date">{formatLogTimestamp(u.createdAt)}</span>
+            </li>
+          ))}
+        </ul>
       )}
 
       <h3>Representações</h3>

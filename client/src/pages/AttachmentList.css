@@ -1,0 +1,11 @@
+.attachment-list__image-item {
+  list-style: none;
+  margin-bottom: 0.5rem;
+}
+
+.attachment-list__image {
+  max-width: 100%;
+  max-height: 320px;
+  border-radius: 10px;
+  display: block;
+}

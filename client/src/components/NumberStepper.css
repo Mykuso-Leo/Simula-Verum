@@ -1,6 +1,9 @@
 .number-stepper {
   display: flex;
   align-items: stretch;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   overflow: hidden;

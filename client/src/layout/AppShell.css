@@ -4,13 +4,15 @@
   color: var(--color-text, #111111);
 }
 
-.app-shell__header {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
+.app-shell__content {
+  padding-top: 4rem;
 }
 
 .app-shell__hamburger {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: var(--z-fab);
   background: none;
   border: none;
   color: var(--color-text, #111111);

@@ -14,13 +14,14 @@
 
 .simulation-composer__specs-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 0.5rem 0.75rem;
   margin-top: 0.4rem;
 }
 
 .simulation-composer__specs-grid .simulation-composer__field {
   margin-top: 0;
+  min-width: 0;
 }
 
 .simulation-composer__label-standalone {
@@ -34,6 +35,9 @@
 }
 
 .simulation-composer__input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   padding: 0.6rem 0.75rem;

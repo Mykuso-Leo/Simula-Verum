@@ -1,6 +1,7 @@
 import { apiFetch } from './api.js'
 
 export const getStorage = () => apiFetch('/admin/storage')
+export const getUserLog = () => apiFetch('/admin/user-log')
 export const restoreDatabase = (answer) =>
   apiFetch('/admin/restore-database', { method: 'POST', body: JSON.stringify({ answer }) })
 

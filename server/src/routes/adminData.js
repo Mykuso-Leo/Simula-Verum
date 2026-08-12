@@ -15,6 +15,11 @@ adminDataRouter.get('/storage', (req, res) => {
   res.json({ dbSizeBytes, uploadsSizeBytes, totalBytes: dbSizeBytes + uploadsSizeBytes })
 })
 
+adminDataRouter.get('/user-log', (req, res) => {
+  const rows = db.prepare('SELECT name, created_at AS createdAt FROM users ORDER BY created_at DESC').all()
+  res.json(rows)
+})
+
 adminDataRouter.post('/restore-database', (req, res) => {
   const { answer } = req.body ?? {}
   if (answer !== 'Tales') {
